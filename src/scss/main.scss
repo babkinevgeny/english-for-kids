@@ -1,0 +1,93 @@
+@import "./helpers/index";
+@import "./components/index";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat";
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $second-color;
+
+  .hamburger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+  }
+
+  .category {
+    margin: auto;
+  }
+
+  .btn__start,
+  .btn__repeat {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: calc(-150px / 2);
+  }
+
+  .switcher {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+  }
+
+  .score {
+    position: absolute;
+    top: 76px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    .hamburger {
+      left: 10px;
+    }
+
+    .switcher {
+      right: 10px;
+    }
+
+    .score {
+      right: 10px;
+    }
+
+    .btn__start {
+      width: 120px;
+      margin-left: calc(-120px / 2);
+    }
+
+    .btn__repeat {
+      width: 124px;
+      margin-left: calc(-124px / 2);
+      padding-right: 0;
+      padding-left: 5px;
+      background-position: 97px 9px;
+    }
+  }
+
+  .statistic {
+    .btn {
+      padding: 10px 0;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  main {
+    .score {
+      right: 5px;
+    }
+  }
+}

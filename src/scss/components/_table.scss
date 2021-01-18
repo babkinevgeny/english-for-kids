@@ -1,0 +1,117 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .row {
+    display: flex;
+    width: 100%;
+    border-top: 2px solid $main-color;
+
+    &:last-child {
+      border-bottom: 2px solid $main-color;
+    }
+
+    &--header {
+      border-left: 2px solid $main-color;
+    }
+  }
+
+  .col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: (100% - 9% * $table-col-type-number) / $table-col-type-text;
+    padding: 5px;
+    text-align: center;
+    border-left: 2px solid $main-color;
+
+    &--number {
+      width: 9%;
+    }
+
+    &--header {
+      position: relative;
+      color: $second-color;
+      font-weight: bold;
+      font-size: 12px;
+      background-color: $main-color;
+      border: 0px;
+      cursor: pointer;
+      transition: background-color 0.5s ease-in;
+      user-select: none;
+    }
+
+    &--header:hover {
+      background-color: darken($main-color, 10%);
+    }
+
+    &:last-child {
+      border-right: 2px solid $main-color;
+    }
+
+    &--header:before {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      display: block;
+      width: 10px;
+      height: 5px;
+      background: url("../assets/icons/arrow.svg") center no-repeat;
+      background-size: cover;
+      content: "";
+    }
+
+    &--header[data-sort-order="null"]:before {
+      display: none;
+    }
+
+    &--header[data-sort-order="asc"]:before {
+      transform: rotateX(180deg);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .table {
+    .col {
+      display: inline-block;
+      width: (100% - 12% * $table-col-type-number) / $table-col-type-text;
+      padding: 0;
+      font-size: 14px;
+      word-wrap: break-word;
+    }
+
+    .col--number {
+      width: 12%;
+    }
+
+    .col--header {
+      display: flex;
+      font-size: 12px;
+    }
+
+    .col--header:before {
+      top: 3px;
+      right: 3px;
+      width: 6px;
+      height: 3px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .table {
+    .col {
+      font-size: 10px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .table {
+    .col {
+      font-size: 8px;
+    }
+  }
+}

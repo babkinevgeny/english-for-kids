@@ -1,0 +1,67 @@
+.switcher {
+  position: relative;
+  float: left;
+  clear: both;
+  margin: 0 0 25px;
+
+  &__text {
+    position: absolute;
+    top: 12px;
+    color: $main-color;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+
+    &--train {
+      left: 7px;
+    }
+
+    &--play {
+      right: 8px;
+    }
+  }
+
+  input {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    z-index: 2;
+    float: left;
+    box-sizing: border-box;
+    width: 80px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid $main-color;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  input[type="checkbox"]:checked + label:before {
+    left: 45px;
+  }
+
+  input[type="checkbox"]:checked ~ .switcher__text--play {
+    color: transparent;
+  }
+
+  input[type="checkbox"]:not(:checked) ~ .switcher__text--train {
+    color: transparent;
+  }
+
+  label:before {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    color: black;
+    background: $main-color;
+    border: 2px solid $main-color;
+    border-radius: 100px;
+    transition: 0.3s ease;
+    content: "";
+  }
+}

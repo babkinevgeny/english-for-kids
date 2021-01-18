@@ -1,0 +1,28 @@
+.score {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 20px;
+  height: 20px * $score-max-size + 20px;
+  padding: 10px 0;
+  border: 1px solid $main-color;
+  border-radius: 5px;
+
+  &--visible {
+    display: flex;
+  }
+
+  &__item {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../assets/icons/star.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &--succeed {
+      background-image: url("../assets/icons/star-win.svg");
+    }
+  }
+}

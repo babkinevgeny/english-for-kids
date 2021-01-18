@@ -1,0 +1,110 @@
+.card {
+  width: 23%;
+  width: 265px;
+  max-width: 265px;
+  height: 210px;
+  max-height: 210px;
+  margin-bottom: 20px;
+  cursor: help;
+  user-select: none;
+
+  &__inner {
+    position: relative;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid $main-color;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+  }
+
+  &__front {
+    display: flex;
+    flex-direction: column;
+    backface-visibility: hidden;
+  }
+
+  &__back {
+    display: none;
+    flex-direction: column;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
+
+  button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    background-image: url("../assets/icons/rotate.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0px;
+    outline: none;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+
+  &--swapped {
+    .card__inner {
+      transform: rotateY(180deg);
+    }
+
+    .card__front {
+      display: none;
+    }
+
+    .card__back {
+      display: flex;
+    }
+  }
+
+  &--in-play {
+    height: 210px;
+    cursor: pointer;
+
+    h3,
+    button {
+      display: none;
+    }
+
+    .card__inner {
+      height: 100%;
+    }
+
+    .card__front {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .card__front img {
+      margin-bottom: 0;
+      transition: all 0.1s ease;
+    }
+  }
+
+  &--succeed {
+    cursor: not-allowed;
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+}
